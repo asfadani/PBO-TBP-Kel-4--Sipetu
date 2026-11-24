@@ -41,7 +41,12 @@ public class Tugas implements Serializable {
     public void setId(Long id) { this.id = id; }
 
     public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
+    public void setTitle(String title) {
+        if (title == null || title.isBlank()) {
+            throw new IllegalArgumentException("Judul tugas tidak boleh kosong");
+        }
+        this.title = title.trim();
+    }
 
     public String getDeskripsi() { return deskripsi; }
     public void setDeskripsi(String deskripsi) { this.deskripsi = deskripsi; }
