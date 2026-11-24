@@ -55,7 +55,12 @@ public class Tugas implements Serializable {
     public void setSubject(String subject) { this.subject = subject; }
 
     public LocalDate getDeadline() { return deadline; }
-    public void setDeadline(LocalDate deadline) { this.deadline = deadline; }
+    public void setDeadline(LocalDate deadline) {
+        if (deadline == null) {
+            throw new IllegalArgumentException("Deadline tugas wajib diisi");
+        }
+        this.deadline = deadline;
+    }
 
     public Priority getPriority() { return priority; }
     public void setPriority(Priority priority) { this.priority = priority; }
