@@ -12,10 +12,16 @@ public class Kelas implements Serializable {
     private Long adminId;
 
     public Kelas(Long id, String nama, String deskripsi, String kodeEnroll, Long adminId) {
+        if (nama == null || nama.isBlank()) {
+            throw new IllegalArgumentException("Nama kelas tidak boleh kosong");
+        }
+        if (kodeEnroll == null || kodeEnroll.isBlank()) {
+            throw new IllegalArgumentException("Kode enroll tidak boleh kosong");
+        }
         this.id = id;
-        this.nama = nama;
+        this.nama = nama.trim();
         this.deskripsi = deskripsi;
-        this.kodeEnroll = kodeEnroll;
+        this.kodeEnroll = kodeEnroll.trim();
         this.adminId = adminId;
     }
 

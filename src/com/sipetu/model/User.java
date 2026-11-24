@@ -13,8 +13,11 @@ public abstract class User implements Serializable {
     private String passwordHash;
 
     protected User(Long id, String username, String passwordHash) {
+        if (username == null || username.isBlank()) {
+            throw new IllegalArgumentException("Username tidak boleh kosong");
+        }
         this.id = id;
-        this.username = username;
+        this.username = username.trim();
         this.passwordHash = passwordHash;
     }
 
