@@ -6,7 +6,7 @@ import com.sipetu.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PengingatService {
+public class PengingatService implements NotifikasiPengingat {
     private final TugasService tugasService;
     private final KelasService kelasService;
 
