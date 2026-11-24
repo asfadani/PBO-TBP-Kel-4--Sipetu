@@ -100,4 +100,12 @@ public class DataStore implements Serializable {
     public synchronized Map<Long, EnrollmentKelas> getEnrollments() { return enrollments; }
     public synchronized Map<Long, Tugas> getTasks() { return tasks; }
     public synchronized Map<Long, DetailTugas> getDetails() { return details; }
+
+    /**
+     * Ringkasan jumlah entitas tersimpan untuk monitoring DataStore V3.
+     */
+    public synchronized String getSummary() {
+        return String.format("Users=%d, Kelas=%d, BidangStudi=%d, Enrollments=%d, Tugas=%d, DetailTugas=%d",
+                users.size(), classes.size(), subjects.size(), enrollments.size(), tasks.size(), details.size());
+    }
 }
