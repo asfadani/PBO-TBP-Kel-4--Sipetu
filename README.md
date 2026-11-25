@@ -1,18 +1,33 @@
-# SIPETU — Rancangan & Kerangka Kode V2 (Java 17 PBO)
+# SIPETU — Implementasi V3 (Java 17 PBO, Tanpa Docker Compose)
 
-Tahap **V2** berisi kerangka kode Java 17 terstruktur yang **dapat dikompilasi dan disimulasikan** sebelum implementasi penuh fitur pada tahap **V3** (kolaborasi GitHub branch/PR per fitur).
+Aplikasi web manajemen dan pengingat tugas kelas berbasis **Java 17 murni** (`com.sun.net.httpserver.HttpServer`) dengan arsitektur PBO 4 lapisan (`model`, `repository`, `service`, `web`) dan penyimpanan persisten lokal (`data/sipetu.dat`).
 
-## Arsitektur Berlapis (4 Layer, Tanpa Docker Compose)
-
-1. `com.sipetu.model` — Entitas domain & aturan dasar (`User` abstract, `Admin`, `Sekretaris`, `Pelajar`, `Role`, `Kelas`, `EnrollmentKelas`, `BidangStudi`, `Tugas`, `Priority`, `DetailTugas`).
-2. `com.sipetu.repository` — Kontrak abstraksi `Repository<T, ID>` dan penyimpanan persisten lokal `DataStore` (`data/sipetu.dat`).
-3. `com.sipetu.service` — Layanan logika bisnis (`AuthService`, `AdminService`, `KelasService`, `TugasService`, `PengingatService`) dengan *constructor injection*.
-4. `com.sipetu.web` — Lapisan antarmuka web REST API (`WebServer`, `JsonUtil`).
-5. `com.sipetu.Main` — *Composition Root* untuk merakit objek dan menjalankan simulasi alur V2.
-
-## Cara Mengkompilasi & Menjalankan Simulasi V2
+## Cara Menjalankan Aplikasi
 
 ```bash
 chmod +x run.sh
 ./run.sh
 ```
+
+Atau di Windows:
+
+```bat
+run.bat
+```
+
+Buka browser di `http://localhost:8080`.
+
+## Cara Menjalankan Kode Uji V3
+
+```bash
+mkdir -p out
+javac -encoding UTF-8 -d out $(find src -name "*.java")
+java -cp out com.sipetu.test.SipetuTest
+```
+
+## Akun Demo & Kode Kelas Default
+
+- **Admin**: `admin` / `admin123`
+- **Sekretaris**: `sekretaris` / `sekretaris123`
+- **Pelajar**: `pelajar` / `pelajar123`
+- **Kode Kelas Default**: `SIPT-ABC123`
