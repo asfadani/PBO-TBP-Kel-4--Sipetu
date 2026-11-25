@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIPETU — Sistem Pengingat Tugas</title>
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+
+<div id="login-page" class="auth-wrap">
+  <div class="auth-card">
+    <h1 class="brand">SIPETU</h1>
+    <p class="brand-sub">Sistem Pengingat Tugas</p>
+    <h2>Masuk</h2>
+    <label>Username</label>
+    <input id="username" placeholder="cth: pelajar" autocomplete="username">
+    <label>Password</label>
+    <input id="password" type="password" placeholder="password" autocomplete="current-password">
+    <button id="btn-login" class="btn btn-primary btn-block">Masuk</button>
+    <p id="login-msg" class="msg-error"></p>
+    <div class="hint">
+      <strong>Akun demo:</strong><br>
+      admin / admin123 &nbsp;|&nbsp; sekretaris / sekretaris123 &nbsp;|&nbsp; pelajar / pelajar123<br>
+      <strong>Kode kelas default:</strong> SIPT-ABC123
+    </div>
+  </div>
+</div>
+
+<div id="enroll-page" class="auth-wrap hidden">
+  <div class="auth-card">
+    <h1 class="brand">SIPETU</h1>
+    <p class="brand-sub">Masuk Kelas</p>
+    <h2>Kode Enrol</h2>
+    <label>Masukkan Kode Enrol Kelas</label>
+    <input id="enroll-code" placeholder="cth: SIPT-ABC123">
+    <button id="btn-enroll" class="btn btn-primary btn-block" onclick="submitEnroll()">Masuk Kelas</button>
+    <button class="btn btn-ghost btn-block" style="margin-top:8px" onclick="logout()">Keluar</button>
+    <p id="enroll-msg" class="msg-error"></p>
+  </div>
+</div>
+
+<div id="app-page" class="hidden">
+  <header class="topbar">
+    <div class="topbar-left"><span class="logo">SIPETU</span></div>
+    <div class="topbar-right">
+      <span id="who"></span>
+      <button class="btn btn-ghost" onclick="logout()">Keluar</button>
+    </div>
+  </header>
+
+  <main class="content">
+    <section id="reminder-banner" class="hidden"></section>
+    <div id="view"></div>
+  </main>
+</div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
