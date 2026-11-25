@@ -10,9 +10,10 @@ Tahap **V2** berisi kerangka kode Java 17 terstruktur yang **dapat dikompilasi d
 4. `com.sipetu.web` — Lapisan antarmuka web REST API (`WebServer`, `JsonUtil`).
 5. `com.sipetu.Main` — *Composition Root* untuk merakit objek dan menjalankan simulasi alur V2.
 
-## Cara Mengkompilasi & Menjalankan Simulasi V2
+## Cara Menjalankan Aplikasi Web (V3)
 
 ```bash
 chmod +x run.sh
 ./run.sh
+# Buka http://localhost:8080
 ```
